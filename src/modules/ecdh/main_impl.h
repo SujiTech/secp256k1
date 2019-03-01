@@ -27,8 +27,6 @@ int secp256k1_ecdh(const secp256k1_context* ctx, unsigned char *result, const se
     if (overflow || secp256k1_scalar_is_zero(&s)) {
         ret = 0;
     } else {
-        unsigned char x[32];
-        unsigned char y[32];
         int compressed = flags & SECP256K1_FLAGS_BIT_COMPRESSION;
 
         secp256k1_ecmult_const(&res, &pt, &s, 256);
